@@ -1,0 +1,59 @@
+﻿@using Final_.Net.Areas.Admin.ViewModels.MedicalDepartments
+@model MedicalDepartmentsIndexVM
+
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Medical Departments</h4>
+                        @* @if (Model.GetAboutUs == null)
+                        {
+
+                        }*@
+                        <a class="btn btn-main" asp-action="create" asp-controller="Medicaldepartments" asp-area="admin">Create Medical Departments</a>
+                       @* else
+                        {*@
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Photo</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        @foreach (var medicalDepartments in Model.MedicalDepartments)
+                                        {
+
+                                            <td>@medicalDepartments.Id</td>
+                                            <td>@medicalDepartments.Title</td>
+                                            <td> @Html.Raw( @medicalDepartments.Description)</td>
+                                            <td>
+                                                <img class="w-25 p-3" src="~/assets/images/@medicalDepartments.PhotoName" />
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-primary" asp-action="details" asp-controller="medicaldepartments" asp-area="admin" asp-route-id="@medicalDepartments.Id">Details</a>
+                                                <a class="btn btn-danger" asp-action="delete" asp-controller="medicaldepartments" asp-area="admin" asp-route-id="@medicalDepartments.Id">Delete</a>
+                                                <a class="btn btn-primary" asp-action="update" asp-controller="medicaldepartments" asp-area="admin" asp-route-id="@medicalDepartments.Id">Update</a>
+                                            </td>
+                                        }
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        @*}*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

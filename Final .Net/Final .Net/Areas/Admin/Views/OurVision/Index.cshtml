@@ -1,0 +1,47 @@
+﻿@using Core.Entities
+@using Final_.Net.Areas.Admin.ViewModels.OurVision
+@model OurVisionIndexVM
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Our Vision</h4>
+                        <a class="btn btn-main" asp-action="create" asp-controller="ourvision" asp-area="admin" >Create Our Vision</a>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Title</th>
+                                        <th>Photo</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var ourVision in Model.OurVisions)
+                                    {
+                                        <tr>
+                                            <td>@ourVision.Id</td>
+                                            <td>@ourVision.Title</td>
+                                            <td>
+                                                <img src="/assets/images/@ourVision.PhotoPath" />
+                                                </td>
+                                            <td>
+                                                <a class="btn btn-primary" asp-action="details" asp-controller="ourvision" asp-area="admin" asp-route-id="@ourVision.Id">Details</a>
+                                                <a class="btn btn-danger" asp-action="delete" asp-controller="ourvision" asp-area="admin" asp-route-id="@ourVision.Id">Delete</a>
+                                                <a class="btn btn-primary" asp-action="update" asp-controller="ourvision" asp-area="admin" asp-route-id="@ourVision.Id">Update</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

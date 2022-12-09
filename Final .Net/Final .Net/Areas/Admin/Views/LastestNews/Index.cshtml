@@ -1,0 +1,52 @@
+﻿@using Final_.Net.Areas.Admin.ViewModels.LastestNews
+@model LastestNewsIndexVM
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Lastest News</h4>
+                        <a class="btn btn-main" asp-action="create" asp-controller="lastestnews" asp-area="admin">Create Lastest News</a>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Time</th>
+                                        <th>PhotoPath</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        @foreach (var lastestNews in Model.LastestNews)
+                                        {
+                                            <td>@lastestNews.Id</td>
+                                            <td>@lastestNews.Title</td>
+                                            <td>@Html.Raw(@lastestNews.Description)</td>
+                                            <td>@lastestNews.Time</td>
+                                            <td>
+                                                <img class="w-25 p-3" src="~/assets/images/@lastestNews.PhotoPath" />
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-primary" asp-action="details" asp-controller="lastestnews" asp-area="admin" asp-route-id="@lastestNews.Id">Details</a>
+                                                <a class="btn btn-danger" asp-action="delete" asp-controller="lastestnews" asp-area="admin" asp-route-id="@lastestNews.Id">Delete</a>
+                                                <a class="btn btn-primary" asp-action="update" asp-controller="lastestnews" asp-area="admin" asp-route-id="@lastestNews.Id">Update</a>
+                                            </td>
+                                        }
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        @*}*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

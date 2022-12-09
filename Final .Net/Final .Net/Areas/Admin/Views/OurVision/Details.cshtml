@@ -1,0 +1,45 @@
+﻿@using Core.Entities
+@model OurVision
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Our Vision</h4>
+                        <a class="btn btn-main" asp-action="create" asp-controller="ourvision" asp-area="admin">Create Our Vision</a>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Photo</th>
+                                        <th>Modified</th>
+                                        <th>CreateAt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@Model.Id</td>
+                                        <td>@Model.Title</td>
+                                        <td>@Model.Description</td>
+                                        <td>
+                                            <img src="/assets/images/@Model.PhotoPath" />
+                                        </td>
+                                        <td>
+                                           @Model.ModifiedAt
+                                        </td>
+                                        <td>@Model.CreateAt</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

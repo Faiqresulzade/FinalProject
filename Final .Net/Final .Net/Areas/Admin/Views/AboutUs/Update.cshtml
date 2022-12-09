@@ -1,0 +1,67 @@
+﻿@using Final_.Net.Areas.Admin.ViewModels.AboutUs
+@model AboutUsUpdateVM
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+
+                        <p class="card-description">
+                            Update About Us
+                        </p>
+                        <form enctype="multipart/form-data" method="post" asp-action="update" asp-controller="aboutus" asp-area="admin" class="forms-sample">
+                            <div class="form-group">
+                                <label asp-for="Title">Title</label>
+                                <input class="form-control" asp-for="Title">
+                                <span asp-validation-for="Title"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="SubTitle">SubTitle</label>
+                                <input class="form-control" asp-for="SubTitle">
+                                <span asp-validation-for="SubTitle"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Description">Description</label>
+                                <textarea class="form-control" asp-for="Description"> </textarea>
+                                <span asp-validation-for="Description"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="SignaturePhoto">SignaturePhoto</label>
+                                <input class="form-control" asp-for="SignaturePhoto">
+                                <span asp-validation-for="SignaturePhoto"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MainPhoto">MainPhoto</label>
+                                <input class="form-control" asp-for="MainPhoto">
+                                <span asp-validation-for="MainPhoto"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="SecondPhoto">SecondPhoto</label>
+                                <input class="form-control" asp-for="SecondPhoto">
+                                <span asp-validation-for="SecondPhoto"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#Description'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>

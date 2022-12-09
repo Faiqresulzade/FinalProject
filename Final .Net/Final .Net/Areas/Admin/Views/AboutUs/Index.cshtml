@@ -1,0 +1,63 @@
+﻿@using Final_.Net.Areas.Admin.ViewModels.AboutUs
+@model AboutUsIndexVM
+
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">About us</h4>
+                        
+                        @if (Model.GetAboutUs == null)
+                        {
+                            <a class="btn btn-main" asp-action="create" asp-controller="aboutus" asp-area="admin">Create About Us</a>
+
+                        }
+                        else
+                        {
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>SubTitle</th>
+                                            <th>Title</th>
+                                            <th>MainPhoto</th>
+                                            <th>SecondPhoto</th>
+                                            <th>Signuture</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>@Model.GetAboutUs.Id</td>
+                                            <td>@Model.GetAboutUs.SubTitle</td>
+                                            <td>@Model.GetAboutUs.Title</td>
+                                            <td>
+                                                <img class="w-50 p-3" src="~/assets/images/@Model.GetAboutUs.MainPhotoPath" />
+                                            </td>
+                                            <td>
+                                                <img class="w-50 p-3" src="~/assets/images/@Model.GetAboutUs.SecondPhotoPath" />
+                                            </td>
+                                            <td>
+                                                <img class="w-50 p-3" src="~/assets/images/@Model.GetAboutUs.SignuturePath" />
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-primary" asp-action="details" asp-controller="aboutus" asp-area="admin" asp-route-id="@Model.GetAboutUs.Id">Details</a>
+                                                <a class="btn btn-danger" asp-action="delete" asp-controller="aboutus" asp-area="admin" asp-route-id="@Model.GetAboutUs.Id">Delete</a>
+                                                <a class="btn btn-primary" asp-action="update" asp-controller="aboutus" asp-area="admin" asp-route-id="@Model.GetAboutUs.Id">Update</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

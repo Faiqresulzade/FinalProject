@@ -1,0 +1,47 @@
+﻿@using Core.Entities
+@model LastestNews
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Lastest News</h4>
+                        <a class="btn btn-main" asp-action="create" asp-controller="lastestnews" asp-area="admin">Create Lastest News</a>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Time</th>
+                                        <th>Photo</th>
+                                        <th>Modified</th>
+                                        <th>CreateAt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@Model.Id</td>
+                                        <td>@Model.Title</td>
+                                        <td>@Html.Raw( @Model.Description)</td>
+                                        <td>@Model.Time</td>
+                                        <td>
+                                            <img class="w-25 p-3" src="/assets/images/@Model.PhotoPath" />
+                                        </td>
+                                        <td>
+                                            @Model.ModifiedAt
+                                        </td>
+                                        <td>@Model.CreateAt</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

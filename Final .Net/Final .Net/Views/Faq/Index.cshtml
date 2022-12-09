@@ -1,0 +1,289 @@
+﻿@using Final_.Net.ViewModels.Faq
+@model FaqIndexVM
+<!--main starts -->
+<main>
+    <!-- main-frame section starts -->
+    <section class="main-frame no-select" style="background-image: url(assets/images/main-frame-photo.jpg);">
+        <div class="main-frame-title">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <div class="main-frame-title-text">
+                            Pricings
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="main-frame-breadcrumb">
+                            Home / Pricings
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- main-frame section ends -->
+    <!-- pricings section starts -->
+    <section class="pricings no-select">
+        <div class="container">
+            <div class="pricing-top text-center" data-aos="fade-down" data-aos-duration="1500">
+                <p class="sub-heading">PRICING AND PLAN</p>
+                <h2 class="heading">A monthly fee. No costly surprises</h2>
+            </div>
+            <div class="pricing-slider" data-aos="fade-up" data-aos-duration="1500">
+
+                @foreach (var pricing in Model.Pricings)
+                {
+                    if (pricing.Status == Core.Constants.PricingPosition.Active)
+                    {
+                        <div class="pricing-slider-element active-price">
+                            <div class="slider-element-wrapper">
+                                <h4 class="title-pricing">@pricing.Title</h4>
+                                <p class="subtitle-pricing">@pricing.Text</p>
+                                <div class="price">
+                                    <span class="unitprice">$</span>
+                                    <span class="price-value">@pricing.Price</span>
+                                    <span class="per">/ per month</span>
+                                </div>
+                                <ul class="features">
+                                   @pricing.Description
+                                </ul>
+                                <div class="get-started">Get Started</div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="pricing-slider-element">
+                            <div class="slider-element-wrapper">
+                                <h4 class="title-pricing">@pricing.Title</h4>
+                                <p class="subtitle-pricing">@pricing.Text</p>
+                                <div class="price">
+                                    <span class="unitprice">$</span>
+                                    <span class="price-value">@pricing.Price</span>
+                                    <span class="per">/ per month</span>
+                                </div>
+                                <ul class="features">
+                                  @Html.Raw(@pricing.Description)
+                                </ul>
+                                <div class="get-started">Get Started</div>
+                            </div>
+                        </div>
+                    }
+
+                }
+                @*<div class="pricing-slider-element">
+                    <div class="slider-element-wrapper">
+                        <h4 class="title-pricing">Basic</h4>
+                        <p class="subtitle-pricing">Designed for businesses with standard health requirements</p>
+                        <div class="price">
+                            <span class="unitprice">$</span>
+                            <span class="price-value">70.00</span>
+                            <span class="per">/ per month</span>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Monthly health check-ups</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Early illness diagnoses</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Free diet consultation</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Custom exercise plans</span>
+                            </li>
+                        </ul>
+                        <div class="get-started">Get Started</div>
+                    </div>
+                </div>
+                <div class="pricing-slider-element">
+                    <div class="slider-element-wrapper">
+                        <h4 class="title-pricing">Professional</h4>
+                        <p class="subtitle-pricing">Designed for businesses with standard health requirements</p>
+                        <div class="price">
+                            <span class="unitprice">$</span>
+                            <span class="price-value">120.00</span>
+                            <span class="per">/ per month</span>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Monthly health check-ups</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Early illness diagnoses</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Free diet consultation</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Custom exercise plans</span>
+                            </li>
+                        </ul>
+                        <div class="get-started">Get Started</div>
+                    </div>
+                </div>
+                <div class="pricing-slider-element active-price">
+                    <div class="slider-element-wrapper">
+                        <h4 class="title-pricing">Standard</h4>
+                        <p class="subtitle-pricing">Designed for businesses with standard health requirements</p>
+                        <div class="price">
+                            <span class="unitprice">$</span>
+                            <span class="price-value">90.00</span>
+                            <span class="per">/ per month</span>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Monthly health check-ups</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Early illness diagnoses</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Free diet consultation</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Custom exercise plans</span>
+                            </li>
+                        </ul>
+                        <div class="get-started">Get Started</div>
+                    </div>
+                </div>
+                <div class="pricing-slider-element">
+                    <div class="slider-element-wrapper">
+                        <h4 class="title-pricing">Basic</h4>
+                        <p class="subtitle-pricing">Designed for businesses with standard health requirements</p>
+                        <div class="price">
+                            <span class="unitprice">$</span>
+                            <span class="price-value">70.00</span>
+                            <span class="per">/ per month</span>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Monthly health check-ups</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Early illness diagnoses</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Free diet consultation</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Custom exercise plans</span>
+                            </li>
+                        </ul>
+                        <div class="get-started">Get Started</div>
+                    </div>
+                </div>
+                <div class="pricing-slider-element">
+                    <div class="slider-element-wrapper">
+                        <h4 class="title-pricing">Professional</h4>
+                        <p class="subtitle-pricing">Designed for businesses with standard health requirements</p>
+                        <div class="price">
+                            <span class="unitprice">$</span>
+                            <span class="price-value">120.00</span>
+                            <span class="per">/ per month</span>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Monthly health check-ups</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Early illness diagnoses</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Free diet consultation</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Custom exercise plans</span>
+                            </li>
+                        </ul>
+                        <div class="get-started">Get Started</div>
+                    </div>
+                </div>
+                <div class="pricing-slider-element active-price">
+                    <div class="slider-element-wrapper">
+                        <h4 class="title-pricing">Standard</h4>
+                        <p class="subtitle-pricing">Designed for businesses with standard health requirements</p>
+                        <div class="price">
+                            <span class="unitprice">$</span>
+                            <span class="price-value">90.00</span>
+                            <span class="per">/ per month</span>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Monthly health check-ups</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Early illness diagnoses</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Free diet consultation</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Custom exercise plans</span>
+                            </li>
+                        </ul>
+                        <div class="get-started">Get Started</div>
+                    </div>
+                </div>
+                <div class="pricing-slider-element">
+                    <div class="slider-element-wrapper">
+                        <h4 class="title-pricing">Basic</h4>
+                        <p class="subtitle-pricing">Designed for businesses with standard health requirements</p>
+                        <div class="price">
+                            <span class="unitprice">$</span>
+                            <span class="price-value">70.00</span>
+                            <span class="per">/ per month</span>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Monthly health check-ups</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Early illness diagnoses</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Free diet consultation</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Custom exercise plans</span>
+                            </li>
+                        </ul>
+                        <div class="get-started">Get Started</div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </section>
+    <!-- pricings section ends -->
+</main>
+<!--main ends -->
